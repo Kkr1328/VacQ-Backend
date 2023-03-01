@@ -11,6 +11,7 @@ connectDB();
 
 // Route files
 const hospitals = require("./routes/hospitals");
+const appointments = require("./routes/appointments");
 const auth = require("./routes/auth");
 
 const app = express();
@@ -18,6 +19,7 @@ const app = express();
 //Body parser
 app.use(express.json());
 app.use("/api/v1/hospitals", hospitals);
+app.use("/api/v1/appointments", appointments);
 app.use("/api/v1/auth", auth);
 
 //Cookie parser
