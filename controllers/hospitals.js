@@ -1,8 +1,21 @@
+const Hospital = require("../models/Hospital");
+const vacCenter = require("../models/VacCenter");
+
+//@desc     Get vaccine centers
+//@route    GET /api/v1/hospitals/vacCenters/
+//@access   Public
+exports.getVacCenters = (req, res, next) => {
+  vacCenter.getAll((err, data) => {
+    if (err)
+      res.status(500).send({
+        message: err.message || "Some error occured while retreiving Vaccine Centers.",
+      });
+    else res.send(data);
+  });
+};
+
 //@desc     Get all hospitals
 //@route    GET /api/v1/hospitals
-
-const Hospital = require("../models/Hospital");
-
 //@access   Public
 exports.getHospitals = async (req, res, next) => {
   let query;
